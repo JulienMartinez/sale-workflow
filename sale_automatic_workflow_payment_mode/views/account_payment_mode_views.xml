@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="account_payment_mode_form" model="ir.ui.view">
+        <field name="name">account_payment_mode.form.workflow</field>
+        <field name="model">account.payment.method.line</field>
+        <field name="inherit_id" ref="account_payment_base_oca.account_payment_method_line_form"/>
+        <field name="arch" type="xml">
+            <group name="main" position="inside">
+                <field name="workflow_process_id" options="{'no_create': True, 'no_create_edit': True}"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="account_payment_mode_tree" model="ir.ui.view">
+        <field name="name">account_payment_method_line.tree.workflow</field>
+        <field name="model">account.payment.method.line</field>
+        <field name="inherit_id" ref="account_payment_base_oca.view_account_payment_method_line_tree" />
+        <field name="arch" type="xml">
+            <field name="payment_method_id" position="after">
+                <field name="workflow_process_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>
